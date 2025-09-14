@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String
+  role      String   @default("USER")
+  grows     Grow[]
+  createdAt DateTime @default(now())
+}
+
+model Strain {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  type      String?
+  summary   String?
+  lineage   String?
+  thcMin    Float?
+  thcMax    Float?
+  cbdMin    Float?
+  cbdMax    Float?
+  terpenes  String?
+  grows     Grow[]
+  createdAt DateTime @default(now())
+}
+
+model Grow {
+  id        String   @id @default(cuid())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  strain    Strain?  @relation(fields: [strainId], references: [id])
+  strainId  String?
+  title     String
+  visibility String  @default("private")
+  entries   GrowEntry[]
+  createdAt DateTime @default(now())
+}
+
+model GrowEntry {
+  id        String   @id @default(cuid())
+  grow      Grow     @relation(fields: [growId], references: [id])
+  growId    String
+  note      String
+  photoPath String?
+  createdAt DateTime @default(now())
+  metrics   String?
+}
