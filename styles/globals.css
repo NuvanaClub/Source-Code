@@ -2,12 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: dark; }
-body { @apply bg-neutral-950 text-neutral-100; }
-.container { @apply max-w-5xl mx-auto px-4; }
-.card { @apply rounded-2xl bg-neutral-900 border border-neutral-800 shadow p-5; }
-.btn { @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-neutral-700 hover:bg-neutral-800; }
-.input { @apply w-full rounded-xl bg-neutral-900 border border-neutral-700 px-3 py-2; }
-.label { @apply text-sm text-neutral-400; }
-.badge { @apply text-xs px-2 py-1 rounded-lg border border-neutral-700; }
-.link { @apply underline decoration-neutral-600 hover:decoration-neutral-300; }
+:root { 
+  color-scheme: dark; 
+  --cannabis-green: #22c55e;
+  --cannabis-dark-green: #16a34a;
+  --cannabis-light-green: #4ade80;
+  --cannabis-gold: #f59e0b;
+  --cannabis-purple: #8b5cf6;
+  --cannabis-orange: #f97316;
+}
+
+body { 
+  @apply bg-gradient-to-br from-green-950 via-neutral-900 to-green-900 text-green-50; 
+  background-attachment: fixed;
+}
+
+.container { @apply max-w-6xl mx-auto px-4; }
+
+.card { 
+  @apply rounded-3xl bg-gradient-to-br from-green-900/50 to-neutral-900/50 border border-green-700/30 shadow-2xl backdrop-blur-sm p-6; 
+  box-shadow: 0 8px 32px rgba(34, 197, 94, 0.1);
+}
+
+.btn { 
+  @apply inline-flex items-center gap-2 rounded-2xl px-6 py-3 border-2 border-green-600 hover:bg-green-600 hover:border-green-500 transition-all duration-300 font-medium; 
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(22, 163, 74, 0.1));
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.2);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+}
+
+.btn-primary {
+  @apply bg-gradient-to-r from-green-600 to-green-500 border-green-500 text-white;
+}
+
+.btn-secondary {
+  @apply bg-gradient-to-r from-purple-600 to-purple-500 border-purple-500 text-white;
+}
+
+.input { 
+  @apply w-full rounded-2xl bg-green-900/30 border-2 border-green-700/50 px-4 py-3 text-green-50 placeholder-green-300 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 transition-all duration-300; 
+}
+
+.label { @apply text-sm text-green-300 font-medium; }
+
+.badge { 
+  @apply text-xs px-3 py-1.5 rounded-full border-2 border-green-600 bg-green-600/20 text-green-300 font-medium; 
+}
+
+.link { 
+  @apply underline decoration-green-400 hover:decoration-green-300 transition-colors duration-300; 
+}
+
+.weed-leaf {
+  background: linear-gradient(45deg, #22c55e, #16a34a, #15803d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow {
+  box-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(139, 92, 246, 0.1), rgba(245, 158, 11, 0.1));
+}
