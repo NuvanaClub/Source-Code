@@ -1,5 +1,6 @@
 "use client";
 
+import { useTheme } from "./ThemeProvider";
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
@@ -32,6 +33,7 @@ export default function ThemeToggle() {
       </button>
     );
   }
+
 
   return (
     <button

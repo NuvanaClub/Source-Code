@@ -284,14 +284,14 @@ export default function StrainsPage() {
             <div>
               <label className="label block mb-2">
                 THC Range: {thcRange[0]}% - {thcRange[1]}%
-                {thcRange[0] > 0 || thcRange[1] < 30 && (
+                {thcRange[0] > 0 || thcRange[1] < 50 && (
                   <span className="ml-2 text-xs text-green-400">●</span>
                 )}
               </label>
               <input
                 type="range"
                 min="0"
-                max="30"
+                max="50"
                 value={thcRange[1]}
                 onChange={(e) => {
                   setThcRange([thcRange[0], parseInt(e.target.value)]);

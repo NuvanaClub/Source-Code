@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button, Input, Label, Textarea } from "@/components/Form";
 import ImageUpload from "@/components/ImageUpload";
 
@@ -8,6 +8,28 @@ export default function AdminUI({ strains }) {
   const [form, setForm] = useState({ name: "", type: "Hybrid", summary: "", lineage: "", thcMin: "", thcMax: "", cbdMin: "", cbdMax: "", terpenes: "", tags: "" });
   const [err, setErr] = useState("");
   const [selectedStrain, setSelectedStrain] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedType, setSelectedType] = useState("all");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [isDeleting, setIsDeleting] = useState(null);
+
+  const strainsPerPage = 8;
+
+  // Filter strains
+  const filteredStrains = useMemo(() => {
+    return strains.filter(strain => {
+      const matchesSearch = strain.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           strain.summary?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           strain.lineage?.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesType = selectedType === "all" || strain.type?.toLowerCase() === selectedType.toLowerCase();
+      return matchesSearch && matchesType;
+    });
+  }, [strains, searchTerm, selectedType]);
+
+  // Pagination
+  const totalPages = Math.ceil(filteredStrains.length / strainsPerPage);
+  const startIndex = (currentPage - 1) * strainsPerPage;
+  const paginatedStrains = filteredStrains.slice(startIndex, startIndex + strainsPerPage);
 
   const save = async (e) => {
     e.preventDefault();
@@ -19,6 +41,28 @@ export default function AdminUI({ strains }) {
     });
     if (!res.ok) return setErr("Failed to save");
     window.location.reload();
+  };
+
+  const deleteStrain = async (strainId) => {
+    if (!confirm("Are you sure you want to delete this strain? This action cannot be undone.")) {
+      return;
+    }
+    
+    setIsDeleting(strainId);
+    try {
+      const res = await fetch(`/admin/strains/api/delete?strainId=${strainId}`, {
+        method: "DELETE"
+      });
+      if (res.ok) {
+        window.location.reload();
+      } else {
+        alert("Failed to delete strain");
+      }
+    } catch (error) {
+      alert("Error deleting strain");
+    } finally {
+      setIsDeleting(null);
+    }
   };
 
   return (
@@ -72,8 +116,47 @@ export default function AdminUI({ strains }) {
           </div>
         </form>
       </div>
+
+      {/* Search and Filter */}
+      <div className="card">
+        <h2 className="text-xl font-semibold mb-4">Manage Strains</h2>
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <Label>Search Strains</Label>
+            <Input
+              type="text"
+              placeholder="Search by name, summary, or lineage..."
+              value={searchTerm}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+                setCurrentPage(1);
+              }}
+            />
+          </div>
+          <div>
+            <Label>Filter by Type</Label>
+            <select
+              value={selectedType}
+              onChange={(e) => {
+                setSelectedType(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="w-full px-3 py-2 bg-green-900/30 border border-green-700/50 rounded-lg text-green-100 focus:outline-none focus:ring-2 focus:ring-green-500"
+            >
+              <option value="all">All Types</option>
+              <option value="indica">Indica</option>
+              <option value="sativa">Sativa</option>
+              <option value="hybrid">Hybrid</option>
+            </select>
+          </div>
+        </div>
+        <div className="text-sm text-green-300">
+          Showing {filteredStrains.length} of {strains.length} strains
+        </div>
+      </div>
+
       <div className="grid md:grid-cols-2 gap-4">
-        {strains.map(s => (
+        {paginatedStrains.map(s => (
           <div key={s.id} className="card">
             <div className="flex items-center justify-between">
               <h2 className="text-lg font-medium">{s.name}</h2>
@@ -87,10 +170,59 @@ export default function AdminUI({ strains }) {
               >
                 📸 Manage Images
               </Button>
+              <Button
+                onClick={() => deleteStrain(s.id)}
+                disabled={isDeleting === s.id}
+                className="text-sm px-3 py-1 bg-red-600 hover:bg-red-700 disabled:opacity-50"
+              >
+                {isDeleting === s.id ? "Deleting..." : "🗑️ Remove"}
+              </Button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Pagination */}
+      {totalPages > 1 && (
+        <div className="card">
+          <div className="flex items-center justify-center gap-2">
+            <Button
+              onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+              className="px-3 py-1 text-sm disabled:opacity-50"
+            >
+              ← Previous
+            </Button>
+            
+            <div className="flex gap-1">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
+                <Button
+                  key={page}
+                  onClick={() => setCurrentPage(page)}
+                  className={`px-3 py-1 text-sm ${
+                    currentPage === page 
+                      ? "bg-green-600 text-white" 
+                      : "bg-green-900/30 hover:bg-green-800/50"
+                  }`}
+                >
+                  {page}
+                </Button>
+              ))}
+            </div>
+            
+            <Button
+              onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="px-3 py-1 text-sm disabled:opacity-50"
+            >
+              Next →
+            </Button>
+          </div>
+          <div className="text-center text-sm text-green-300 mt-2">
+            Page {currentPage} of {totalPages}
+          </div>
+        </div>
+      )}
 
       {selectedStrain && (
         <div className="card">
