@@ -1,6 +1,6 @@
-# 🚀 Weed Wiki Deployment Guide
+# 🚀 Nuvana Club Deployment Guide
 
-> **Complete deployment guide for Weed Wiki** - From local development to production deployment on Vercel with PostgreSQL
+> **Complete deployment guide for Nuvana Club** - From local development to production deployment on Vercel with PostgreSQL
 
 ## 🎯 Quick Start
 
@@ -14,8 +14,8 @@
 
 #### Clone and Install
 ```bash
-git clone https://github.com/VoxHash/weed-wiki.git
-cd weed-wiki
+git clone https://github.com/VoxHash/nuvana-club.git
+cd nuvana-club
 npm install
 ```
 
@@ -71,7 +71,7 @@ DATABASE_URL="postgresql://username:password@host:port/database"
 
 # NextAuth
 NEXTAUTH_SECRET="your-secret-key-here"
-NEXTAUTH_URL="https://your-domain.vercel.app"
+NEXTAUTH_URL="https://nuvana.club"
 
 # OAuth Providers (Optional)
 GOOGLE_CLIENT_ID="your-google-client-id"
@@ -114,7 +114,7 @@ DATABASE_URL="postgresql://username:password@host:port/database"
 #### NextAuth
 ```env
 NEXTAUTH_SECRET="your-secret-key-here"
-NEXTAUTH_URL="https://your-domain.vercel.app"
+NEXTAUTH_URL="https://nuvana.club"
 ```
 
 #### OAuth Providers (Optional)
@@ -221,7 +221,7 @@ ENABLE_SENSITIVE="true"
 ### Health Checks
 
 #### Database Health
-Visit: `https://your-domain.vercel.app/api/health`
+Visit: `https://nuvana.club/api/health`
 
 **Expected Response**:
 ```json
@@ -337,4 +337,4 @@ Visit: `https://your-domain.vercel.app/api/health`
 
 **Made with ❤️ by VoxHash**
 
-*Weed Wiki - Legal-first cannabis education platform!* 🌿✨
+*Nuvana Club - Legal-first cannabis education platform!* 🌿✨

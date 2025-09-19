@@ -1,4 +1,4 @@
-# Security Audit & Cleanup Summary
+# Nuvana Club Security Audit & Cleanup Summary
 
 ## ✅ **Files Removed from Repository**
 

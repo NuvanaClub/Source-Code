@@ -1,6 +1,6 @@
-# 📚 Weed Wiki Documentation Index
+# 📚 Nuvana Club Documentation Index
 
-> **Complete documentation guide for Weed Wiki** - Everything you need to know about the project, from getting started to advanced development
+> **Complete documentation guide for Nuvana Club** - Everything you need to know about the project, from getting started to advanced development
 
 ## 🎯 Quick Navigation
 
@@ -212,4 +212,4 @@
 
 **Made with ❤️ by VoxHash and the amazing community**
 
-*Weed Wiki Documentation - Your guide to cannabis education!* 🌿✨
+*Nuvana Club Documentation - Your guide to cannabis education!* 🌿✨

@@ -1,6 +1,7 @@
 # 🏷️ GitHub Repository Topics
 
 ## Primary Topics
+- `nuvana-club`
 - `cannabis`
 - `strain-catalog`
 - `grow-logging`
@@ -173,12 +174,12 @@
 ## 📋 Complete Topics List (Copy-Paste Ready)
 
 ```
-cannabis,strain-catalog,grow-logging,nextjs,prisma,tailwindcss,cannabis-education,legal-first,cannabis-database,grow-tracking,cannabis-strains,cannabis-research,cannabis-community,cannabis-analytics,cannabis-data,cannabis-platform,cannabis-app,cannabis-tracking,cannabis-knowledge,react,nextauth,postgresql,sqlite,typescript,javascript,nodejs,web-application,progressive-web-app,responsive-design,mobile-friendly,cross-platform,docker,vercel,deployment,cloud,serverless,strain-database,user-authentication,role-based-access,image-upload,export-functionality,search-filtering,favorites-system,comment-system,thc-cbd,terpenes,cannabis-effects,cannabis-types,indica,sativa,hybrid,cannabis-growing,cannabis-cultivation,data-visualization,charts,analytics,export-pdf,export-csv,data-export,growth-tracking,metrics,statistics,reporting,user-interface,user-experience,dark-theme,light-theme,responsive,mobile-first,accessibility,usability,design-system,component-library,open-source,mit-license,contributing,documentation,testing,ci-cd,github-actions,docker,deployment,version-control,community,contributors,good-first-issue,help-wanted,tutorial,examples,beginner-friendly,hacktoberfest,cannabis-community,production-ready,scalable,maintainable,well-documented,tested,secure,reliable,performant,user-friendly,professional,oauth,google-auth,discord-auth,twitter-auth,nextauth,authentication,authorization,api,rest-api,graphql,fast,efficient,optimized,responsive,lightweight,minimal,professional,scalable,performant,modern
+nuvana-club,cannabis,strain-catalog,grow-logging,nextjs,prisma,tailwindcss,cannabis-education,legal-first,cannabis-database,grow-tracking,cannabis-strains,cannabis-research,cannabis-community,cannabis-analytics,cannabis-data,cannabis-platform,cannabis-app,cannabis-tracking,cannabis-knowledge,react,nextauth,postgresql,sqlite,typescript,javascript,nodejs,web-application,progressive-web-app,responsive-design,mobile-friendly,cross-platform,docker,vercel,deployment,cloud,serverless,strain-database,user-authentication,role-based-access,image-upload,export-functionality,search-filtering,favorites-system,comment-system,thc-cbd,terpenes,cannabis-effects,cannabis-types,indica,sativa,hybrid,cannabis-growing,cannabis-cultivation,data-visualization,charts,analytics,export-pdf,export-csv,data-export,growth-tracking,metrics,statistics,reporting,user-interface,user-experience,dark-theme,light-theme,responsive,mobile-first,accessibility,usability,design-system,component-library,open-source,mit-license,contributing,documentation,testing,ci-cd,github-actions,docker,deployment,version-control,community,contributors,good-first-issue,help-wanted,tutorial,examples,beginner-friendly,hacktoberfest,cannabis-community,production-ready,scalable,maintainable,well-documented,tested,secure,reliable,performant,user-friendly,professional,oauth,google-auth,discord-auth,twitter-auth,nextauth,authentication,authorization,api,rest-api,graphql,fast,efficient,optimized,responsive,lightweight,minimal,professional,scalable,performant,modern
 ```
 
 ## 🎯 Recommended Topics (Top 20)
 ```
-cannabis,strain-catalog,grow-logging,nextjs,prisma,tailwindcss,cannabis-education,legal-first,cannabis-database,grow-tracking,cannabis-strains,cannabis-research,cannabis-community,cannabis-analytics,web-application,progressive-web-app,responsive-design,open-source,community,production-ready
+nuvana-club,cannabis,strain-catalog,grow-logging,nextjs,prisma,tailwindcss,cannabis-education,legal-first,cannabis-database,grow-tracking,cannabis-strains,cannabis-research,cannabis-community,cannabis-analytics,web-application,progressive-web-app,responsive-design,open-source,community,production-ready
 ```
 
 ## 🎨 Category Breakdown
@@ -266,4 +267,4 @@ Provide comprehensive coverage for discoverability:
 
 **Made with ❤️ by VoxHash**
 
-*Weed Wiki - Comprehensive cannabis education platform!* 🌿✨
+*Nuvana Club - Comprehensive cannabis education platform!* 🌿✨

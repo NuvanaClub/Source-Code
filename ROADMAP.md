@@ -1,9 +1,9 @@
-# 🗺️ Weed Wiki Development Roadmap
+# 🗺️ Nuvana Club Development Roadmap
 
-> **Weed Wiki's Journey**: From a comprehensive cannabis strain catalog to a complete educational platform with advanced analytics, community features, and mobile applications
+> **Nuvana Club's Journey**: From a comprehensive cannabis strain catalog to a complete educational platform with advanced analytics, community features, and mobile applications
 
 ## 🎯 Vision Statement
-Transform Weed Wiki into the ultimate cannabis education platform with advanced analytics, community features, mobile applications, and AI-powered insights while maintaining strict legal compliance and educational focus.
+Transform Nuvana Club into the ultimate cannabis education platform with advanced analytics, community features, mobile applications, and AI-powered insights while maintaining strict legal compliance and educational focus.
 
 ---
 
@@ -305,7 +305,7 @@ Transform Weed Wiki into the ultimate cannabis education platform with advanced 
 
 ---
 
-## 🎉 Weed Wiki's Evolution Journey
+## 🎉 Nuvana Club's Evolution Journey
 
 ### 🌟 Design Philosophy
 - **Legal-First**: Maintain strict compliance and educational focus
@@ -331,15 +331,15 @@ Transform Weed Wiki into the ultimate cannabis education platform with advanced 
 ## 📞 Contact & Support
 
 - **Creator**: VoxHash
-- **Repository**: https://github.com/VoxHash/weed-wiki
-- **Issues**: https://github.com/VoxHash/weed-wiki/issues
-- **Discussions**: https://github.com/VoxHash/weed-wiki/discussions
+- **Repository**: https://github.com/VoxHash/nuvana-club
+- **Issues**: https://github.com/VoxHash/nuvana-club/issues
+- **Discussions**: https://github.com/VoxHash/nuvana-club/discussions
 
 ---
 
 ## 🎯 Conclusion
 
-Weed Wiki is on an exciting journey from a comprehensive strain catalog to a complete cannabis education platform! With clear goals, organized development phases, and strong community support, Weed Wiki will continue to grow and evolve while maintaining its core legal-first philosophy.
+Nuvana Club is on an exciting journey from a comprehensive strain catalog to a complete cannabis education platform! With clear goals, organized development phases, and strong community support, Nuvana Club will continue to grow and evolve while maintaining its core legal-first philosophy.
 
 **Key Success Factors:**
 - Clear roadmap and priorities
@@ -349,10 +349,10 @@ Weed Wiki is on an exciting journey from a comprehensive strain catalog to a com
 - Embrace new technologies
 - Build a sustainable ecosystem
 
-**Weed Wiki's Promise**: *"We're excited to grow with the community and become the best cannabis education platform we can be! Together, we'll build something amazing! *sparkles with determination*"*
+**Nuvana Club's Promise**: *"We're excited to grow with the community and become the best cannabis education platform we can be! Together, we'll build something amazing! *sparkles with determination*"*
 
 ---
 
 **Made with ❤️ by VoxHash for the cannabis education community**
 
-*Weed Wiki is ready for the journey ahead!* 🌿✨
+*Nuvana Club is ready for the journey ahead!* 🌿✨

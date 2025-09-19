@@ -1,6 +1,6 @@
-# 🤝 Contributing to Weed Wiki
+# 🤝 Contributing to Nuvana Club
 
-Thank you for your interest in contributing to Weed Wiki! We're excited to work with the community to make Weed Wiki even better! 🌿✨
+Thank you for your interest in contributing to Nuvana Club! We're excited to work with the community to make Nuvana Club even better! 🌿✨
 
 ## 🎯 How to Contribute
 
@@ -10,15 +10,15 @@ Found a bug? Help us fix it!
 2. Use our [bug report template](.github/ISSUE_TEMPLATE/bug_report.md)
 3. Provide detailed information about the bug
 4. Include steps to reproduce
-5. Specify your platform and Weed Wiki version
+5. Specify your platform and Nuvana Club version
 
 ### ✨ Feature Requests
-Have an idea for Weed Wiki? We'd love to hear it!
+Have an idea for Nuvana Club? We'd love to hear it!
 1. Check if the feature is already requested
 2. Use our [feature request template](.github/ISSUE_TEMPLATE/feature_request.md)
 3. Describe the feature clearly
 4. Explain the use case and benefits
-5. Consider if it fits Weed Wiki's legal-first, educational philosophy
+5. Consider if it fits Nuvana Club's legal-first, educational philosophy
 
 ### 💻 Code Contributions
 Want to contribute code? Awesome! Here's how:
@@ -27,8 +27,8 @@ Want to contribute code? Awesome! Here's how:
 1. **Fork the repository**
 2. **Clone your fork**
    ```bash
-   git clone https://github.com/your-username/weed-wiki.git
-   cd weed-wiki
+   git clone https://github.com/your-username/nuvana-club.git
+   cd nuvana-club
    ```
 
 3. **Create a feature branch**
@@ -191,7 +191,7 @@ When contributing, please test:
 ## 🏗️ Project Structure
 
 ```
-weed-wiki/
+nuvana-club/
 ├── app/                          # Next.js App Router
 │   ├── (auth)/                   # Authentication pages
 │   ├── admin/                    # Admin panel
@@ -292,9 +292,9 @@ test: add grow log tests
 chore: update dependencies
 ```
 
-## 🎨 Weed Wiki Design Guidelines
+## 🎨 Nuvana Club Design Guidelines
 
-When contributing to Weed Wiki's design or features:
+When contributing to Nuvana Club's design or features:
 
 ### ✅ Do:
 - Maintain legal-first, educational approach
@@ -380,9 +380,9 @@ Before submitting a PR, make sure:
 5. **Ask questions if you need help**
 6. **Have fun contributing!**
 
-## 🌿 Weed Wiki Philosophy
+## 🌿 Nuvana Club Philosophy
 
-Weed Wiki is designed with these core principles:
+Nuvana Club is designed with these core principles:
 
 - **Legal-First**: Educational content with strict compliance
 - **Professional**: High-quality implementation and user experience
@@ -407,4 +407,4 @@ Let's build something amazing together! ✨"
 
 **Made with ❤️ by VoxHash and the amazing community**
 
-*Weed Wiki is ready to work with you!* 🌿✨
+*Nuvana Club is ready to work with you!* 🌿✨

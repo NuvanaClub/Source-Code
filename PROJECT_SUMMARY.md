@@ -1,10 +1,10 @@
-# 🌿 Weed Wiki - Project Summary
+# 🌿 Nuvana Club - Project Summary
 
-> **Comprehensive overview of Weed Wiki** - A legal-first cannabis education platform with strain catalog and grow logging capabilities
+> **Comprehensive overview of Nuvana Club** - A legal-first cannabis education platform with strain catalog and grow logging capabilities
 
 ## 🎯 Project Overview
 
-**Weed Wiki** is a comprehensive, legal-first cannabis strain catalog and private grow logging platform built with modern web technologies. The platform emphasizes educational content, legal compliance, and community engagement while providing powerful tools for strain research and grow tracking.
+**Nuvana Club** is a comprehensive, legal-first cannabis strain catalog and private grow logging platform built with modern web technologies. The platform emphasizes educational content, legal compliance, and community engagement while providing powerful tools for strain research and grow tracking.
 
 ### Core Mission
 - **Legal-First**: Educational content with strict compliance safeguards
@@ -250,7 +250,7 @@
 
 ## 🎉 Conclusion
 
-Weed Wiki represents a comprehensive, legal-first approach to cannabis education and community building. With its robust technical foundation, extensive feature set, and strong community focus, it's positioned to become the leading platform for cannabis strain research and grow tracking.
+Nuvana Club represents a comprehensive, legal-first approach to cannabis education and community building. With its robust technical foundation, extensive feature set, and strong community focus, it's positioned to become the leading platform for cannabis strain research and grow tracking.
 
 **Key Strengths:**
 - Legal-first, educational approach
@@ -267,10 +267,10 @@ Weed Wiki represents a comprehensive, legal-first approach to cannabis education
 - Advanced analytics
 - Community platform
 
-**Weed Wiki's Promise**: *"Building the future of cannabis education, one strain at a time!"* 🌿✨
+**Nuvana Club's Promise**: *"Building the future of cannabis education, one strain at a time!"* 🌿✨
 
 ---
 
 **Made with ❤️ by VoxHash and the amazing community**
 
-*Weed Wiki - Legal-first cannabis education platform!* 🌿✨
+*Nuvana Club - Legal-first cannabis education platform!* 🌿✨

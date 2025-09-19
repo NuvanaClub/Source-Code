@@ -1,8 +1,8 @@
-# 🌿 Weed Wiki v2.0.0
+# 🌿 Nuvana Club v2.0.0
 
-> **Weed Wiki** - A comprehensive, legal-first cannabis strain catalog and private grow logging platform. Built with Next.js, Prisma, and Tailwind CSS for modern web development.
+> **Nuvana Club** - A comprehensive, legal-first cannabis strain catalog and private grow logging platform. Built with Next.js, Prisma, and Tailwind CSS for modern web development.
 
-[![Version](https://img.shields.io/badge/version-2.0.0-green.svg)](https://github.com/VoxHash/weed-wiki)
+[![Version](https://img.shields.io/badge/version-2.0.0-green.svg)](https://github.com/VoxHash/nuvana-club)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![Next.js](https://img.shields.io/badge/next.js-14.2+-black.svg)](https://nextjs.org/)
 [![Prisma](https://img.shields.io/badge/prisma-5.10+-blue.svg)](https://prisma.io/)
@@ -66,8 +66,8 @@
 
 1. **Clone Repository**
    ```bash
-   git clone https://github.com/VoxHash/weed-wiki.git
-   cd weed-wiki
+   git clone https://github.com/VoxHash/nuvana-club.git
+   cd nuvana-club
    ```
 
 2. **Install Dependencies**
@@ -331,8 +331,8 @@ npm run db:seed
 
 ### Getting Help
 
-- **Issues**: [GitHub Issues](https://github.com/VoxHash/weed-wiki/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/VoxHash/weed-wiki/discussions)
+- **Issues**: [GitHub Issues](https://github.com/VoxHash/nuvana-club/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/VoxHash/nuvana-club/discussions)
 - **Documentation**: See project documentation files
 
 ## 📋 Changelog
@@ -370,4 +370,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Made with ❤️ by VoxHash**
 
-*Weed Wiki - Legal-first cannabis education and grow logging!* 🌿✨
+*Nuvana Club - Legal-first cannabis education and grow logging!* 🌿✨

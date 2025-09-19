@@ -1,6 +1,6 @@
 # 📝 Changelog
 
-All notable changes to Weed Wiki will be documented in this file.
+All notable changes to Nuvana Club will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -129,7 +129,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Security Guide**: Security best practices
 
 ### 🎉 Release Notes
-This is the major 2.0.0 release of Weed Wiki, transforming it from a basic strain catalog into a comprehensive cannabis education and grow logging platform. The application now provides a complete solution for strain research, grow tracking, and community engagement while maintaining strict legal compliance.
+This is the major 2.0.0 release of Nuvana Club, transforming it from a basic strain catalog into a comprehensive cannabis education and grow logging platform. The application now provides a complete solution for strain research, grow tracking, and community engagement while maintaining strict legal compliance.
 
 **Key Highlights:**
 - Complete strain catalog with 518+ entries
@@ -183,12 +183,12 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/VoxHash/weed-wiki/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/VoxHash/weed-wiki/discussions)
+- **Issues**: [GitHub Issues](https://github.com/VoxHash/nuvana-club/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/VoxHash/nuvana-club/discussions)
 - **Creator**: VoxHash
 
 ---
 
 **Made with ❤️ by VoxHash**
 
-*Weed Wiki - Legal-first cannabis education and grow logging!* 🌿✨
+*Nuvana Club - Legal-first cannabis education and grow logging!* 🌿✨
