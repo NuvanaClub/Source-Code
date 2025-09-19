@@ -67,6 +67,8 @@ I built Weed Wiki to demonstrate:
 
 ## 🚀 Quick Start
 
+### Option 1: Local Development (Recommended)
+
 1. **Clone the repository**
    ```bash
    git clone https://github.com/voxhash/weed-wiki
@@ -82,11 +84,25 @@ I built Weed Wiki to demonstrate:
    ```bash
    cp .env.example .env
    ```
-   Edit `.env` and add your database URL:
-   ```
-   DATABASE_URL="file:./dev.db"
-   NEXTAUTH_SECRET="your-secret-key"
+   Edit `.env` and configure your settings:
+   ```env
+   # Database
+   DATABASE_URL="file:./prisma/dev.db"
+   
+   # NextAuth
+   NEXTAUTH_SECRET="your-secret-key-here"
    NEXTAUTH_URL="http://localhost:3000"
+   
+   # OAuth Providers (Optional)
+   GOOGLE_CLIENT_ID="your-google-client-id"
+   GOOGLE_CLIENT_SECRET="your-google-client-secret"
+   DISCORD_CLIENT_ID="your-discord-client-id"
+   DISCORD_CLIENT_SECRET="your-discord-client-secret"
+   TWITTER_CLIENT_ID="your-twitter-client-id"
+   TWITTER_CLIENT_SECRET="your-twitter-client-secret"
+   
+   # Feature Flags
+   ENABLE_SENSITIVE=true
    ```
 
 4. **Setup database**
@@ -103,6 +119,31 @@ I built Weed Wiki to demonstrate:
 6. **Access the application**
    - Frontend: http://localhost:3000
    - Admin Panel: http://localhost:3000/admin/strains (Admin role required)
+
+### Option 2: Docker Development
+
+1. **Clone and setup**
+   ```bash
+   git clone https://github.com/voxhash/weed-wiki
+   cd weed-wiki
+   cp .env.example .env
+   ```
+
+2. **Start with Docker Compose**
+   ```bash
+   docker-compose up -d
+   ```
+
+3. **Setup database**
+   ```bash
+   docker-compose exec app npm run db:push
+   docker-compose exec app npm run db:seed
+   ```
+
+4. **Access the application**
+   - Frontend: http://localhost:3000
+   - Database: localhost:3306 (MySQL)
+   - Redis: localhost:6379
 
 ## 📖 API Documentation
 

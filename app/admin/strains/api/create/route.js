@@ -14,6 +14,7 @@ export async function POST(req) {
     summary: (body.summary||"").toString().trim().slice(0, 4000),
     lineage: (body.lineage||"").toString().trim().slice(0, 500),
     terpenes: (body.terpenes||"").toString().trim().slice(0, 500),
+    tags: body.tags ? JSON.stringify(body.tags.split(',').map(tag => tag.trim()).filter(tag => tag)) : null,
     thcMin: body.thcMin ? Number(body.thcMin) : null,
     thcMax: body.thcMax ? Number(body.thcMax) : null,
     cbdMin: body.cbdMin ? Number(body.cbdMin) : null,

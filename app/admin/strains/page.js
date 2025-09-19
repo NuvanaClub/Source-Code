@@ -8,6 +8,11 @@ export default async function AdminStrains() {
   if (!session || session.user.role !== "ADMIN") {
     return <div className="card">Admins only.</div>;
   }
-  const strains = await prisma.strain.findMany({ orderBy: { createdAt: "desc" } });
+  const strains = await prisma.strain.findMany({ 
+    orderBy: { createdAt: "desc" },
+    include: {
+      images: true
+    }
+  });
   return <AdminUI strains={strains} />;
 }

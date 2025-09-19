@@ -3,6 +3,8 @@ import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { SessionProvider } from "@/components/SessionProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata = {
   title: "Weed Wiki - Cannabis Strain Database & Grow Logs",
@@ -15,7 +17,8 @@ export default async function RootLayout({ children }) {
     <html lang="en">
       <body>
         <SessionProvider session={session}>
-          <header className="border-b border-green-700/30 bg-green-900/20 backdrop-blur-sm">
+          <ThemeProvider>
+            <header className="border-b border-green-700/30 bg-green-900/20 backdrop-blur-sm">
             <div className="container py-4 flex items-center justify-between">
               <nav className="flex items-center gap-6">
                 <Link href="/" className="font-bold text-2xl weed-leaf">
@@ -28,10 +31,18 @@ export default async function RootLayout({ children }) {
                   <Link href="/grow" className="text-green-200 hover:text-green-300 transition-colors duration-300 font-medium">
                     📊 My Logs
                   </Link>
+                  <Link href="/favorites" className="text-green-200 hover:text-green-300 transition-colors duration-300 font-medium">
+                    ❤️ Favorites
+                  </Link>
                   {session?.user?.role === "ADMIN" && (
-                    <Link href="/admin/strains" className="badge">
-                      👑 Admin
-                    </Link>
+                    <>
+                      <Link href="/admin/strains" className="badge">
+                        👑 Admin
+                      </Link>
+                      <Link href="/admin/audit" className="badge">
+                        🔍 Audit
+                      </Link>
+                    </>
                   )}
                   <Link href="/legal" className="text-green-200 hover:text-green-300 transition-colors duration-300 font-medium">
                     ⚖️ Legal
@@ -39,8 +50,16 @@ export default async function RootLayout({ children }) {
                 </div>
               </nav>
               <div className="flex items-center gap-3">
+                <ThemeToggle />
                 {session ? (
                   <div className="flex items-center gap-3">
+                    {session.user?.image && (
+                      <img 
+                        src={session.user.image} 
+                        alt={session.user.name} 
+                        className="w-8 h-8 rounded-full border-2 border-green-600"
+                      />
+                    )}
                     <span className="text-green-300 text-sm">
                       Welcome, {session.user?.name || session.user?.email}
                     </span>
@@ -99,6 +118,7 @@ export default async function RootLayout({ children }) {
               </div>
             </div>
           </footer>
+          </ThemeProvider>
         </SessionProvider>
       </body>
     </html>

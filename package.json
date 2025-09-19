@@ -12,11 +12,17 @@
   },
   "dependencies": {
     "@prisma/client": "5.10.2",
+    "@vercel/og": "^0.0.21",
+    "aws-sdk": "^2.1490.0",
     "bcryptjs": "2.4.3",
-    "next": "14.2.5",
-    "next-auth": "4.24.7",
+    "date-fns": "^4.1.0",
+    "jspdf": "^2.5.1",
+    "next": "^14.2.32",
+    "next-auth": "^4.24.11",
+    "node-fetch": "^3.3.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "recharts": "^2.8.0",
     "zod": "3.23.8"
   },
   "devDependencies": {

@@ -12,7 +12,14 @@ export async function POST(req, { params }) {
     data: {
       growId: grow.id,
       note: (body?.note || "").toString().slice(0, 5000),
-      photoPath: (body?.photoPath || "").toString()
+      photoPath: (body?.photoPath || "").toString(),
+      stage: body?.stage || null,
+      plantHeight: body?.plantHeight ? parseFloat(body.plantHeight) : null,
+      leafCount: body?.leafCount ? parseInt(body.leafCount) : null,
+      temperature: body?.temperature ? parseFloat(body.temperature) : null,
+      humidity: body?.humidity ? parseFloat(body.humidity) : null,
+      ph: body?.ph ? parseFloat(body.ph) : null,
+      nutrients: body?.nutrients || null
     }
   });
   return new Response(JSON.stringify({ id: entry.id }), { status: 201 });

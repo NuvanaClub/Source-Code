@@ -8,7 +8,12 @@ export default async function GrowDetail({ params }) {
   if (!session) return <div className="card">Please sign in.</div>;
   const grow = await prisma.grow.findUnique({
     where: { id: params.id },
-    include: { entries: { orderBy: { createdAt: "desc" } } }
+    include: { 
+      entries: { orderBy: { createdAt: "desc" } },
+      strain: {
+        select: { name: true, type: true }
+      }
+    }
   });
   if (!grow || grow.userId !== session.user.id) return <div className="card">Not found.</div>;
   return <GrowEditor grow={grow} />;
