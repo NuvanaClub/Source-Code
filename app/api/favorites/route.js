@@ -2,14 +2,18 @@ import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { ensureUserExists } from "@/lib/user-utils";
 
 export async function GET() {
   const session = await getServerSession(authOptions);
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
+    // Ensure user exists in database
+    const user = await ensureUserExists(session.user);
+    
     const favorites = await prisma.userFavorite.findMany({
-      where: { userId: session.user.id },
+      where: { userId: user.id },
       include: {
         strain: true,
         grow: {
@@ -33,6 +37,9 @@ export async function POST(req) {
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   try {
+    // Ensure user exists in database
+    const user = await ensureUserExists(session.user);
+    
     const { type, strainId, growId } = await req.json();
 
     if (!type || (type === "strain" && !strainId) || (type === "grow" && !growId)) {
@@ -42,7 +49,7 @@ export async function POST(req) {
     // Check if already favorited
     const existing = await prisma.userFavorite.findFirst({
       where: {
-        userId: session.user.id,
+        userId: user.id,
         type,
         strainId: type === "strain" ? strainId : null,
         growId: type === "grow" ? growId : null
@@ -55,7 +62,7 @@ export async function POST(req) {
 
     const favorite = await prisma.userFavorite.create({
       data: {
-        userId: session.user.id,
+        userId: user.id,
         type,
         strainId: type === "strain" ? strainId : null,
         growId: type === "grow" ? growId : null

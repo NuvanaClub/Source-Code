@@ -41,10 +41,27 @@ export async function POST(req, { params }) {
       return NextResponse.json({ error: "File too large" }, { status: 400 });
     }
 
-    // Create uploads directory if it doesn't exist
+    // For Vercel serverless, we'll use a different approach
+    // In production, you should use a cloud storage service like AWS S3, Cloudinary, etc.
+    const isVercel = process.env.VERCEL === '1';
+    
+    if (isVercel) {
+      // In Vercel, we can't write to the filesystem
+      // For now, we'll return an error suggesting to use cloud storage
+      return NextResponse.json({ 
+        error: "Image uploads not supported in serverless environment. Please use a cloud storage service like AWS S3 or Cloudinary." 
+      }, { status: 501 });
+    }
+
+    // Local development - create uploads directory if it doesn't exist
     const uploadsDir = join(process.cwd(), "public", "uploads", "strains");
-    if (!existsSync(uploadsDir)) {
-      await mkdir(uploadsDir, { recursive: true });
+    try {
+      if (!existsSync(uploadsDir)) {
+        await mkdir(uploadsDir, { recursive: true });
+      }
+    } catch (error) {
+      console.error("Error creating uploads directory:", error);
+      return NextResponse.json({ error: "Failed to create upload directory" }, { status: 500 });
     }
 
     // Generate unique filename
