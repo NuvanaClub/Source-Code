@@ -15,7 +15,7 @@ async function createTestUsers() {
         password: adminPassword,
         name: 'Admin User',
         role: 'ADMIN',
-        bio: 'System administrator for Weed Wiki',
+        bio: 'System administrator for Nuvana Club',
         location: 'Global'
       },
       create: {
@@ -23,7 +23,7 @@ async function createTestUsers() {
         name: 'Admin User',
         password: adminPassword,
         role: 'ADMIN',
-        bio: 'System administrator for Weed Wiki',
+        bio: 'System administrator for Nuvana Club',
         location: 'Global'
       },
     });

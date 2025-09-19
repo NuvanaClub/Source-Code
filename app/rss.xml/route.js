@@ -20,13 +20,13 @@ export async function GET() {
     const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Weed Wiki - Cannabis Strain Database</title>
-    <description>Latest cannabis strains added to Weed Wiki - Legal-first educational platform</description>
+    <title>Nuvana Club - Cannabis Strain Database</title>
+    <description>Latest cannabis strains added to Nuvana Club - Legal-first educational platform</description>
     <link>${baseUrl}</link>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <generator>Weed Wiki</generator>
+    <generator>Nuvana Club</generator>
     
     ${strains.map(strain => `
     <item>

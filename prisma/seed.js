@@ -12,7 +12,7 @@ async function main() {
       name: "Admin User", 
       password: adminHash, 
       role: "ADMIN",
-      bio: "System administrator for Weed Wiki",
+      bio: "System administrator for Nuvana Club",
       location: "Global"
     },
     update: {}

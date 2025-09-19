@@ -7,7 +7,7 @@ export default function HomePage() {
       <div className="card hero-gradient glow">
         <div className="text-center">
           <h1 className="text-5xl font-bold mb-4 weed-leaf">
-            🌿 Weed Wiki
+            🌿 Nuvana Club
           </h1>
           <p className="text-2xl text-green-200 mb-2 font-medium">
             Your Cannabis Knowledge Hub

@@ -11,13 +11,13 @@ export async function generateMetadata({ params }) {
 
   if (!user) {
     return {
-      title: "User Not Found - Weed Wiki",
+      title: "User Not Found - Nuvana Club",
       description: "The requested user profile could not be found."
     };
   }
 
-  const title = `${user.name || "User"} - Profile | Weed Wiki`;
-  const description = user.bio || `View ${user.name || "this user"}'s public profile on Weed Wiki.`;
+  const title = `${user.name || "User"} - Profile | Nuvana Club`;
+  const description = user.bio || `View ${user.name || "this user"}'s public profile on Nuvana Club.`;
 
   return {
     title,

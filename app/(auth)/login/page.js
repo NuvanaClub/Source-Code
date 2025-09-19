@@ -24,7 +24,7 @@ export default function LoginPage() {
 
   return (
     <div className="card max-w-md mx-auto">
-      <h1 className="text-2xl font-semibold text-center mb-6">Sign in to Weed Wiki</h1>
+      <h1 className="text-2xl font-semibold text-center mb-6">Sign in to Nuvana Club</h1>
       
       {/* OAuth Providers */}
       <div className="space-y-3 mb-6">

@@ -174,7 +174,7 @@ async function setupDatabase() {
     console.log('   Email: ' + (process.env.ADMIN_EMAIL || 'admin@example.com'));
     console.log('   Password: ' + (process.env.ADMIN_PASSWORD || 'admin123'));
     console.log('');
-    console.log('🌐 Test your app at: https://weedwiki.voxhash.dev');
+    console.log('🌐 Test your app at: https://nuvana.club');
 
   } catch (error) {
     console.error('❌ Setup failed:', error.message);

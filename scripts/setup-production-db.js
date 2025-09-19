@@ -30,7 +30,7 @@ async function setupDatabase() {
         name: 'Admin User',
         password: adminPassword,
         role: 'ADMIN',
-        bio: 'System administrator for Weed Wiki',
+        bio: 'System administrator for Nuvana Club',
         location: 'Global'
       },
     });

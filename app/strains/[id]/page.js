@@ -18,12 +18,12 @@ export async function generateMetadata({ params }) {
 
   if (!strain) {
     return {
-      title: "Strain Not Found - Weed Wiki",
+      title: "Strain Not Found - Nuvana Club",
       description: "The requested cannabis strain could not be found."
     };
   }
 
-  const title = `${strain.name} - ${strain.type || 'Hybrid'} Strain | Weed Wiki`;
+  const title = `${strain.name} - ${strain.type || 'Hybrid'} Strain | Nuvana Club`;
   const description = strain.summary || `Learn about ${strain.name}, a ${strain.type?.toLowerCase() || 'hybrid'} cannabis strain. Educational information only.`;
   const ogImage = `/api/og?name=${encodeURIComponent(strain.name)}&type=${encodeURIComponent(strain.type || 'Hybrid')}&thc=${strain.thcMin ? `${strain.thcMin}-${strain.thcMax}` : 'Unknown'}`;
 
@@ -36,7 +36,7 @@ export async function generateMetadata({ params }) {
       } catch {
         return strain.tags;
       }
-    })() : `${strain.name}, ${strain.type}, cannabis strain, weed wiki`,
+    })() : `${strain.name}, ${strain.type}, cannabis strain, nuvana club`,
     openGraph: {
       title,
       description,

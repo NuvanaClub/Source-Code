@@ -7,7 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export const metadata = {
-  title: "Weed Wiki - Cannabis Strain Database & Grow Logs",
+  title: "Nuvana Club - Cannabis Strain Database & Grow Logs",
   description: "Neutral strain catalog + personal grow logs (legal-first).",
 };
 
@@ -22,7 +22,7 @@ export default async function RootLayout({ children }) {
             <div className="container py-4 flex items-center justify-between">
               <nav className="flex items-center gap-6">
                 <Link href="/" className="font-bold text-2xl weed-leaf">
-                  🌿 Weed Wiki
+                  🌿 Nuvana Club
                 </Link>
                 <div className="hidden md:flex items-center gap-4">
                   <Link href="/strains" className="text-green-200 hover:text-green-300 transition-colors duration-300 font-medium">
@@ -87,7 +87,7 @@ export default async function RootLayout({ children }) {
             <div className="container py-8">
               <div className="grid md:grid-cols-3 gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-green-300 mb-3">🌿 Weed Wiki</h3>
+                  <h3 className="text-lg font-semibold text-green-300 mb-3">🌿 Nuvana Club</h3>
                   <p className="text-green-200 text-sm">
                     Your comprehensive cannabis knowledge hub. Legal-first, neutral catalog.
                   </p>
@@ -114,7 +114,7 @@ export default async function RootLayout({ children }) {
                 </div>
               </div>
               <div className="border-t border-green-700/30 mt-6 pt-6 text-center text-green-300 text-sm">
-                © {new Date().getFullYear()} Weed Wiki. Legal-first, neutral catalog. No cultivation instructions included.
+                © {new Date().getFullYear()} Nuvana Club. Legal-first, neutral catalog. No cultivation instructions included.
               </div>
             </div>
           </footer>

@@ -331,7 +331,7 @@ We use [Semantic Versioning](https://semver.org/):
 ### 🌟 Contributors
 - Contributors will be listed in the README
 - Special recognition for significant contributions
-- Weed Wiki will thank you! 🌿✨
+- Nuvana Club will thank you! 🌿✨
 
 ### 🏆 Contribution Levels
 - **Bronze**: 1-5 contributions
@@ -369,7 +369,7 @@ Before submitting a PR, make sure:
 - [ ] Commit messages follow the convention
 - [ ] PR description is clear and detailed
 - [ ] Related issues are linked
-- [ ] Weed Wiki's legal-first philosophy is maintained
+- [ ] Nuvana Club's legal-first philosophy is maintained
 
 ## 🎯 Quick Start for New Contributors
 
@@ -391,13 +391,13 @@ Nuvana Club is designed with these core principles:
 - **Reliable**: Stable, consistent, and dependable
 - **User-Friendly**: Intuitive and easy to use
 
-When contributing, please keep these principles in mind and help us maintain Weed Wiki's high standards!
+When contributing, please keep these principles in mind and help us maintain Nuvana Club's high standards!
 
 ---
 
-## 🤖 A Message from the Weed Wiki Team
+## 🤖 A Message from the Nuvana Club Team
 
-"Hey there, future contributor! We're super excited that you want to help make Weed Wiki even better! Whether you're fixing bugs, adding features, or improving the user experience, every contribution helps us create the best cannabis education platform possible.
+"Hey there, future contributor! We're super excited that you want to help make Nuvana Club even better! Whether you're fixing bugs, adding features, or improving the user experience, every contribution helps us create the best cannabis education platform possible.
 
 Don't be afraid to ask questions - we're here to help! And remember, coding is like growing cannabis... it takes patience, care, and a lot of debugging!
 

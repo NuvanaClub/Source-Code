@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 export const metadata = {
-  title: "About Weed Wiki - Cannabis Knowledge Hub",
-  description: "Learn about Weed Wiki's mission, tech stack, and commitment to legal-first cannabis education.",
+  title: "About Nuvana Club - Cannabis Knowledge Hub",
+  description: "Learn about Nuvana Club's mission, tech stack, and commitment to legal-first cannabis education.",
 };
 
 export default function AboutPage() {
@@ -11,7 +11,7 @@ export default function AboutPage() {
       {/* Hero Section */}
       <div className="card hero-gradient glow text-center">
         <h1 className="text-4xl font-bold mb-4 weed-leaf">
-          About Weed Wiki
+          About Nuvana Club
         </h1>
         <p className="text-xl text-green-200 mb-2">
           Your comprehensive cannabis knowledge hub
@@ -28,7 +28,7 @@ export default function AboutPage() {
         </h2>
         <div className="prose prose-green max-w-none">
           <p className="text-green-200 text-lg leading-relaxed">
-            Weed Wiki was created to provide a comprehensive, neutral platform for cannabis education 
+            Nuvana Club was created to provide a comprehensive, neutral platform for cannabis education 
             and personal grow tracking. We believe in the power of knowledge and responsible information 
             sharing while maintaining strict compliance with legal frameworks.
           </p>
@@ -217,7 +217,7 @@ export default function AboutPage() {
         </h2>
         <div className="prose prose-red max-w-none">
           <p className="text-red-200 text-sm leading-relaxed">
-            <strong>Important:</strong> Weed Wiki is designed for educational and informational purposes only. 
+            <strong>Important:</strong> Nuvana Club is designed for educational and informational purposes only. 
             This application does not provide cultivation instructions or encourage illegal activities. 
             Users are responsible for complying with all applicable laws and regulations in their jurisdiction. 
             Always check local laws before engaging in any cannabis-related activities.
