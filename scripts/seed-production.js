@@ -1,4 +1,6 @@
 const { PrismaClient } = require('@prisma/client');
+const bcrypt = require('bcryptjs');
+const allStrains = require('./all-strains');
 
 const prisma = new PrismaClient();
 
@@ -15,59 +17,56 @@ async function main() {
     }
 
     // Create admin user
+    const adminPassword = await bcrypt.hash('admin123', 10);
     const adminUser = await prisma.user.upsert({
       where: { email: 'admin@weedwiki.com' },
       update: {},
       create: {
         email: 'admin@weedwiki.com',
         name: 'Admin User',
+        password: adminPassword,
         role: 'ADMIN',
+        bio: 'System administrator for Weed Wiki',
+        location: 'Global'
       },
     });
 
-    console.log('✅ Admin user created:', adminUser.email);
+    // Create contributor user
+    const contributorPassword = await bcrypt.hash('contrib123', 10);
+    const contributorUser = await prisma.user.upsert({
+      where: { email: 'contributor@weedwiki.com' },
+      update: {},
+      create: {
+        email: 'contributor@weedwiki.com',
+        name: 'Contributor User',
+        password: contributorPassword,
+        role: 'CONTRIBUTOR',
+        bio: 'Cannabis enthusiast and strain researcher',
+        location: 'California, USA'
+      },
+    });
 
-    // Create sample strains
-    const strains = [
-      {
-        name: 'Blue Dream',
-        type: 'Hybrid',
-        summary: 'A balanced hybrid known for its sweet berry aroma and relaxing effects.',
-        lineage: 'Blueberry x Haze',
-        thcMin: 17.0,
-        thcMax: 24.0,
-        cbdMin: 0.1,
-        cbdMax: 0.2,
-        terpenes: 'Myrcene, Pinene, Caryophyllene',
-        tags: 'fruity, relaxing, balanced, sweet',
+    // Create regular user
+    const userPassword = await bcrypt.hash('user123', 10);
+    const regularUser = await prisma.user.upsert({
+      where: { email: 'user@weedwiki.com' },
+      update: {},
+      create: {
+        email: 'user@weedwiki.com',
+        name: 'Regular User',
+        password: userPassword,
+        role: 'USER',
+        bio: 'Cannabis enthusiast exploring strains',
+        location: 'Oregon, USA'
       },
-      {
-        name: 'OG Kush',
-        type: 'Indica',
-        summary: 'A classic indica with earthy, pine flavors and strong relaxing effects.',
-        lineage: 'Chemdawg x Hindu Kush',
-        thcMin: 20.0,
-        thcMax: 26.0,
-        cbdMin: 0.1,
-        cbdMax: 0.3,
-        terpenes: 'Limonene, Myrcene, Caryophyllene',
-        tags: 'earthy, pine, relaxing, classic',
-      },
-      {
-        name: 'Sour Diesel',
-        type: 'Sativa',
-        summary: 'An energizing sativa with diesel-like aroma and uplifting effects.',
-        lineage: 'Chemdawg x Super Skunk',
-        thcMin: 18.0,
-        thcMax: 25.0,
-        cbdMin: 0.1,
-        cbdMax: 0.2,
-        terpenes: 'Limonene, Caryophyllene, Humulene',
-        tags: 'energizing, uplifting, diesel, citrus',
-      },
-    ];
+    });
 
-    for (const strainData of strains) {
+    console.log('✅ Users created:', adminUser.email, contributorUser.email, regularUser.email);
+
+    // Create all 518 strains
+    console.log(`🌱 Creating ${allStrains.length} strains...`);
+    
+    for (const strainData of allStrains) {
       const strain = await prisma.strain.upsert({
         where: { name: strainData.name },
         update: {},

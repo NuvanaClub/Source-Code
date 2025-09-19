@@ -1,5 +1,6 @@
 import prisma from "../lib/prisma.js";
 import bcrypt from "bcryptjs";
+import allStrains from "../scripts/all-strains.js";
 
 async function main() {
   // Create admin user
@@ -47,65 +48,10 @@ async function main() {
     update: {}
   });
 
-  // Comprehensive strain data with tags
-  const strains = [
-    {
-      name: "Aurora Drift",
-      type: "Indica",
-      summary: "Notes of earth and pine. Neutral catalog entry emphasizing aroma and reported effects without guidance.",
-      lineage: "Unknown",
-      terpenes: "Myrcene, Caryophyllene",
-      thcMin: 14.0, thcMax: 22.0, cbdMin: 0.1, cbdMax: 1.0,
-      tags: JSON.stringify(["earthy", "pine", "relaxing", "indica"])
-    },
-    {
-      name: "Citrus Haze",
-      type: "Sativa",
-      summary: "Citrus-forward profile and bright aroma. Neutral description only.",
-      lineage: "Haze cross",
-      terpenes: "Limonene, Terpinolene",
-      thcMin: 16.0, thcMax: 24.0, cbdMin: 0.1, cbdMax: 1.0,
-      tags: JSON.stringify(["citrus", "energizing", "sativa", "bright"])
-    },
-    {
-      name: "Balanced Blend",
-      type: "Hybrid",
-      summary: "Even-keeled profile in aroma and reported effects. No cultivation how‑to details included.",
-      lineage: "Hybrid mix",
-      terpenes: "Linalool, Pinene",
-      thcMin: 12.0, thcMax: 20.0, cbdMin: 0.1, cbdMax: 2.0,
-      tags: JSON.stringify(["balanced", "hybrid", "versatile", "smooth"])
-    },
-    {
-      name: "Purple Punch",
-      type: "Indica",
-      summary: "Fruity and sweet with grape undertones. Popular for evening relaxation.",
-      lineage: "Larry OG x Granddaddy Purple",
-      terpenes: "Myrcene, Limonene, Caryophyllene",
-      thcMin: 15.0, thcMax: 20.0, cbdMin: 0.1, cbdMax: 0.5,
-      tags: JSON.stringify(["fruity", "sweet", "grape", "relaxing", "indica"])
-    },
-    {
-      name: "Green Crack",
-      type: "Sativa",
-      summary: "Energizing and uplifting with tropical fruit notes. Known for its stimulating effects.",
-      lineage: "Skunk #1 x Unknown",
-      terpenes: "Limonene, Pinene, Myrcene",
-      thcMin: 13.0, thcMax: 21.0, cbdMin: 0.1, cbdMax: 0.3,
-      tags: JSON.stringify(["energizing", "tropical", "uplifting", "sativa"])
-    },
-    {
-      name: "Blue Dream",
-      type: "Hybrid",
-      summary: "Balanced hybrid with sweet berry aroma. Popular for its versatility and smooth effects.",
-      lineage: "Blueberry x Haze",
-      terpenes: "Myrcene, Pinene, Caryophyllene",
-      thcMin: 17.0, thcMax: 24.0, cbdMin: 0.1, cbdMax: 0.2,
-      tags: JSON.stringify(["sweet", "berry", "balanced", "versatile", "hybrid"])
-    }
-  ];
-
-  for (const s of strains) {
+  // Use all 518 strains from original database
+  console.log(`🌱 Creating ${allStrains.length} strains...`);
+  
+  for (const s of allStrains) {
     await prisma.strain.upsert({
       where: { name: s.name },
       create: s,
@@ -151,7 +97,7 @@ async function main() {
   });
 
   console.log("Seed complete. Users:", admin.email, contributor.email, user.email);
-  console.log("Strains created:", strains.length);
+  console.log("Strains created:", allStrains.length);
   console.log("Sample grow log created for user");
 }
 
