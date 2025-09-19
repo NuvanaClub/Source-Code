@@ -13,6 +13,7 @@ export default function StrainsPage() {
   const [selectedType, setSelectedType] = useState("all");
   const [selectedTags, setSelectedTags] = useState([]);
   const [thcRange, setThcRange] = useState([0, 50]);
+  const [cbdRange, setCbdRange] = useState([0, 20]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState("name");
   const [sortOrder, setSortOrder] = useState("asc");
@@ -73,6 +74,15 @@ export default function StrainsPage() {
         const thcMin = strain.thcMin;
         const thcMax = strain.thcMax;
         if (thcMin < thcRange[0] || thcMax > thcRange[1]) {
+          return false;
+        }
+      }
+
+      // CBD range filter
+      if (strain.cbdMin !== null && strain.cbdMax !== null) {
+        const cbdMin = strain.cbdMin;
+        const cbdMax = strain.cbdMax;
+        if (cbdMin < cbdRange[0] || cbdMax > cbdRange[1]) {
           return false;
         }
       }
@@ -148,6 +158,17 @@ export default function StrainsPage() {
     setCurrentPage(1);
   };
 
+  const resetFilters = () => {
+    setSearchTerm("");
+    setSelectedType("all");
+    setSelectedTags([]);
+    setThcRange([0, 50]);
+    setCbdRange([0, 20]);
+    setSortBy("name");
+    setSortOrder("asc");
+    setCurrentPage(1);
+  };
+
   if (loading) {
     return (
       <div className="grid gap-8">
@@ -206,7 +227,7 @@ export default function StrainsPage() {
           </div>
 
           {/* Filters Row */}
-          <div className="grid md:grid-cols-4 gap-4">
+          <div className="grid md:grid-cols-5 gap-4">
             {/* Type Filter */}
             <div>
               <label className="label block mb-2">Type</label>
@@ -261,7 +282,12 @@ export default function StrainsPage() {
 
             {/* THC Range */}
             <div>
-              <label className="label block mb-2">THC Range: {thcRange[0]}% - {thcRange[1]}%</label>
+              <label className="label block mb-2">
+                THC Range: {thcRange[0]}% - {thcRange[1]}%
+                {thcRange[0] > 0 || thcRange[1] < 30 && (
+                  <span className="ml-2 text-xs text-green-400">●</span>
+                )}
+              </label>
               <input
                 type="range"
                 min="0"
@@ -274,11 +300,40 @@ export default function StrainsPage() {
                 className="w-full"
               />
             </div>
+
+            {/* CBD Range */}
+            <div>
+              <label className="label block mb-2">
+                CBD Range: {cbdRange[0]}% - {cbdRange[1]}%
+                {cbdRange[0] > 0 || cbdRange[1] < 20 && (
+                  <span className="ml-2 text-xs text-green-400">●</span>
+                )}
+              </label>
+              <input
+                type="range"
+                min="0"
+                max="20"
+                value={cbdRange[1]}
+                onChange={(e) => {
+                  setCbdRange([cbdRange[0], parseInt(e.target.value)]);
+                  setCurrentPage(1);
+                }}
+                className="w-full"
+              />
+            </div>
           </div>
 
           {/* Tags Filter */}
           <div>
-            <label className="label block mb-2">Filter by Tags</label>
+            <div className="flex items-center justify-between mb-2">
+              <label className="label">Filter by Tags</label>
+              <button
+                onClick={resetFilters}
+                className="text-sm text-green-400 hover:text-green-300 underline"
+              >
+                Reset All Filters
+              </button>
+            </div>
             <div className="flex flex-wrap gap-2">
               {availableTags.map(tag => (
                 <button
