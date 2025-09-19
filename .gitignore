@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+package-lock.json
 
 # Next.js
 .next/
@@ -10,42 +11,68 @@ out/
 build/
 dist/
 
-# Environment variables
+# Environment variables (CRITICAL - Never commit these)
 .env
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
 .env.*.local
+.env.production
+.env.staging
 
-# Sensitive data files
+# Sensitive data files (CRITICAL - Never commit these)
 *secret*
 *password*
 *credential*
 *connection*
 *config*
+*key*
+*token*
+*api*
+*private*
 
-# Database
+# Database files (CRITICAL - Never commit these)
 *.db
 *.sqlite
 *.sqlite3
+prisma/dev.db
+prisma/prod.db
+prisma/*.db
+*.sql
+!prisma/schema.prisma
+!prisma/schema.sqlite.prisma
 
 # Prisma
 prisma/migrations/
+prisma/seed.js.log
 
-# IDE
+# IDE and Editor files
 .vscode/
 .idea/
 *.swp
 *.swo
+*.sublime-*
+.atom/
+.brackets.json
 
-# OS
+# OS generated files
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+Desktop.ini
 
 # Logs
 logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
 # Runtime data
 pids/
@@ -55,21 +82,88 @@ pids/
 
 # Coverage directory used by tools like istanbul
 coverage/
+.nyc_output/
 
-# Uploads
+# Uploads and user content
 public/uploads/*
 !public/uploads/.gitkeep
+uploads/
+user-uploads/
 
 # Temporary files
 tmp/
 temp/
+.tmp/
+.temp/
 
 # Vercel
 .vercel/
 
-# Production environment files
-.env.production
+# Build artifacts
+dist/
+build/
+out/
 
-# Setup scripts output
-setup-database.js.log
+# Cache directories
+.cache/
+.parcel-cache/
+.next/cache/
+
+# Testing
+coverage/
+.nyc_output/
+junit.xml
+
+# Documentation that might contain sensitive info
 TEST_USERS.md
+VERCEL_ENV_SETUP.md
+*_SECRETS.md
+*_CREDENTIALS.md
+
+# Scripts that might contain sensitive data
+scripts/*secret*
+scripts/*password*
+scripts/*credential*
+scripts/*key*
+scripts/*token*
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Lock files (optional - some teams prefer to commit these)
+# package-lock.json
+# yarn.lock
+
+# Local development files
+.local/
+local/
+dev/
+
+# Database dumps and exports
+*.dump
+*.sql.gz
+*.sql.bz2
+weed-wiki-database.sql
+
+# API keys and secrets in any format
+**/secrets.json
+**/keys.json
+**/credentials.json
+**/config.json
+**/settings.json
+
+# Any file with sensitive patterns
+**/*secret*
+**/*password*
+**/*credential*
+**/*key*
+**/*token*
+**/*api*
+**/*private*
+
+# Generated files
+*.generated.*
+*.auto.*
