@@ -6,8 +6,15 @@ const prisma = new PrismaClient();
 
 async function resetAndSeed() {
   console.log('🔄 Resetting and seeding production database...');
+  console.log('🌍 Environment:', process.env.NODE_ENV);
+  console.log('🔗 Database URL:', process.env.DATABASE_URL ? 'Set' : 'Not set');
 
   try {
+    // Test database connection first
+    console.log('📡 Testing database connection...');
+    await prisma.$connect();
+    console.log('✅ Database connection successful');
+
     // First, clear existing strains
     console.log('🗑️  Clearing existing strains...');
     await prisma.strain.deleteMany({});
@@ -63,13 +70,30 @@ async function resetAndSeed() {
     // Create all 518 strains
     console.log(`🌱 Creating ${allStrains.length} strains...`);
     
+    let successCount = 0;
+    let errorCount = 0;
+    
     for (let i = 0; i < allStrains.length; i++) {
-      const strainData = allStrains[i];
-      const strain = await prisma.strain.create({
-        data: strainData,
-      });
-      console.log(`✅ Strain ${i + 1}/${allStrains.length} created: ${strain.name}`);
+      try {
+        const strainData = allStrains[i];
+        const strain = await prisma.strain.create({
+          data: strainData,
+        });
+        successCount++;
+        if (i % 50 === 0 || i < 10) { // Log every 50 strains or first 10
+          console.log(`✅ Strain ${i + 1}/${allStrains.length} created: ${strain.name}`);
+        }
+      } catch (error) {
+        errorCount++;
+        console.error(`❌ Error creating strain ${i + 1}:`, error.message);
+        if (errorCount > 10) {
+          console.error('❌ Too many errors, stopping strain creation');
+          break;
+        }
+      }
     }
+    
+    console.log(`📊 Strain creation complete: ${successCount} successful, ${errorCount} errors`);
 
     console.log('🎉 Production database reset and seeded successfully!');
   } catch (error) {
