@@ -72,3 +72,4 @@ temp/
 
 # Setup scripts output
 setup-database.js.log
+TEST_USERS.md
