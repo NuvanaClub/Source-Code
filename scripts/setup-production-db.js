@@ -2,18 +2,22 @@ const { PrismaClient } = require('@prisma/client');
 
 const prisma = new PrismaClient();
 
-async function main() {
-  console.log('🌱 Seeding production database...');
+async function setupDatabase() {
+  console.log('🚀 Setting up production database...');
 
   try {
-    // Check if tables exist by trying to count users
-    try {
-      await prisma.user.count();
-    } catch (error) {
-      console.log('⚠️  Tables not found, skipping seed...');
-      return;
-    }
+    // First, try to push the schema to create tables
+    console.log('📋 Pushing database schema...');
+    const { execSync } = require('child_process');
+    execSync('npx prisma db push --accept-data-loss', { stdio: 'inherit' });
+    console.log('✅ Database schema pushed successfully');
 
+    // Wait a moment for the database to be ready
+    await new Promise(resolve => setTimeout(resolve, 2000));
+
+    // Now seed the database
+    console.log('🌱 Seeding database...');
+    
     // Create admin user
     const adminUser = await prisma.user.upsert({
       where: { email: 'admin@weedwiki.com' },
@@ -24,7 +28,6 @@ async function main() {
         role: 'ADMIN',
       },
     });
-
     console.log('✅ Admin user created:', adminUser.email);
 
     // Create sample strains
@@ -76,13 +79,13 @@ async function main() {
       console.log(`✅ Strain created: ${strain.name}`);
     }
 
-    console.log('🎉 Production database seeded successfully!');
+    console.log('🎉 Production database setup complete!');
   } catch (error) {
-    console.error('❌ Error seeding database:', error);
+    console.error('❌ Error setting up database:', error);
     throw error;
   } finally {
     await prisma.$disconnect();
   }
 }
 
-main();
+setupDatabase();
