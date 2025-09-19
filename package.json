@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "node scripts/switch-db.js && next dev",
-    "build": "node scripts/switch-db.js && prisma generate && next build",
+    "build": "node scripts/pre-build.js && prisma generate && next build",
     "start": "next start",
     "postinstall": "node scripts/switch-db.js && prisma generate",
     "db:push": "node scripts/switch-db.js && prisma db push",
@@ -13,7 +13,8 @@
     "db:migrate-prod": "node scripts/migrate-production.js",
     "db:studio": "node scripts/switch-db.js && prisma studio",
     "db:switch-sqlite": "node -e \"require('fs').copyFileSync('prisma/schema.sqlite.prisma', 'prisma/schema.prisma')\"",
-    "db:switch-postgres": "node -e \"require('fs').copyFileSync('prisma/schema.prisma', 'prisma/schema.prisma')\""
+    "db:switch-postgres": "node -e \"require('fs').copyFileSync('prisma/schema.prisma', 'prisma/schema.prisma')\"",
+    "vercel-build": "node scripts/pre-build.js && prisma generate && next build"
   },
   "dependencies": {
     "@prisma/client": "5.10.2",

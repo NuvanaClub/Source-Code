@@ -1,14 +1,21 @@
 const fs = require('fs');
 const path = require('path');
 
-const environment = process.env.NODE_ENV || 'development';
-const isProduction = environment === 'production';
+// Check for local development (SQLite) vs production (PostgreSQL)
+const isVercel = process.env.VERCEL === '1';
+const isLocalDev = !isVercel; // If not on Vercel, assume local development
 
-console.log(`Switching to ${isProduction ? 'PostgreSQL' : 'SQLite'} schema...`);
+// Use SQLite for local development, PostgreSQL for everything else
+const useSQLite = isLocalDev;
 
-const sourceSchema = isProduction 
-  ? 'prisma/schema.prisma' 
-  : 'prisma/schema.sqlite.prisma';
+console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+console.log(`Vercel: ${process.env.VERCEL ? 'Yes' : 'No'}`);
+console.log(`isLocalDev: ${isLocalDev}`);
+console.log(`Using ${useSQLite ? 'SQLite' : 'PostgreSQL'} schema...`);
+
+const sourceSchema = useSQLite 
+  ? 'prisma/schema.sqlite.prisma' 
+  : 'prisma/schema.prisma';
 
 const targetSchema = 'prisma/schema.prisma';
 
@@ -19,7 +26,7 @@ try {
   // Write to the main schema file
   fs.writeFileSync(targetSchema, schemaContent);
   
-  console.log(`✅ Schema switched to ${isProduction ? 'PostgreSQL' : 'SQLite'}`);
+  console.log(`✅ Schema switched to ${useSQLite ? 'SQLite' : 'PostgreSQL'}`);
 } catch (error) {
   console.error('❌ Error switching schema:', error.message);
   process.exit(1);
