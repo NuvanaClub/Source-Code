@@ -4,22 +4,15 @@ const allStrains = require('./all-strains');
 
 const prisma = new PrismaClient();
 
-async function setupDatabase() {
-  console.log('🚀 Setting up production database...');
+async function resetAndSeed() {
+  console.log('🔄 Resetting and seeding production database...');
 
   try {
-    // First, try to push the schema to create tables
-    console.log('📋 Pushing database schema...');
-    const { execSync } = require('child_process');
-    execSync('npx prisma db push --accept-data-loss', { stdio: 'inherit' });
-    console.log('✅ Database schema pushed successfully');
+    // First, clear existing strains
+    console.log('🗑️  Clearing existing strains...');
+    await prisma.strain.deleteMany({});
+    console.log('✅ Existing strains cleared');
 
-    // Wait a moment for the database to be ready
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    // Now seed the database
-    console.log('🌱 Seeding database...');
-    
     // Create admin user
     const adminPassword = await bcrypt.hash('admin123', 10);
     const adminUser = await prisma.user.upsert({
@@ -70,22 +63,21 @@ async function setupDatabase() {
     // Create all 518 strains
     console.log(`🌱 Creating ${allStrains.length} strains...`);
     
-    for (const strainData of allStrains) {
-      const strain = await prisma.strain.upsert({
-        where: { name: strainData.name },
-        update: {},
-        create: strainData,
+    for (let i = 0; i < allStrains.length; i++) {
+      const strainData = allStrains[i];
+      const strain = await prisma.strain.create({
+        data: strainData,
       });
-      console.log(`✅ Strain created: ${strain.name}`);
+      console.log(`✅ Strain ${i + 1}/${allStrains.length} created: ${strain.name}`);
     }
 
-    console.log('🎉 Production database setup complete!');
+    console.log('🎉 Production database reset and seeded successfully!');
   } catch (error) {
-    console.error('❌ Error setting up database:', error);
+    console.error('❌ Error resetting and seeding database:', error);
     throw error;
   } finally {
     await prisma.$disconnect();
   }
 }
 
-setupDatabase();
+resetAndSeed();
