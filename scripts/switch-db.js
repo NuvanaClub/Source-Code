@@ -3,7 +3,7 @@ const path = require('path');
 
 // Check for local development (SQLite) vs production (PostgreSQL)
 const isVercel = process.env.VERCEL === '1';
-const isLocalDev = !isVercel; // If not on Vercel, assume local development
+const isLocalDev = !isVercel && process.env.NODE_ENV !== 'production';
 
 // Use SQLite for local development, PostgreSQL for everything else
 const useSQLite = isLocalDev;
