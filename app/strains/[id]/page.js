@@ -30,7 +30,13 @@ export async function generateMetadata({ params }) {
   return {
     title,
     description,
-    keywords: strain.tags ? JSON.parse(strain.tags).join(', ') : `${strain.name}, ${strain.type}, cannabis strain, weed wiki`,
+    keywords: strain.tags ? (() => {
+      try {
+        return JSON.parse(strain.tags).join(', ');
+      } catch {
+        return strain.tags;
+      }
+    })() : `${strain.name}, ${strain.type}, cannabis strain, weed wiki`,
     openGraph: {
       title,
       description,
@@ -116,15 +122,23 @@ export default async function StrainDetail({ params }) {
         )}
 
         {/* Tags */}
-        {strain.tags && (
-          <div className="flex flex-wrap gap-2 mb-4">
-            {JSON.parse(strain.tags).map((tag, index) => (
-              <span key={index} className="px-3 py-1 bg-green-800/30 text-green-400 rounded-full text-sm">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
+        {strain.tags && (() => {
+          let strainTags = [];
+          try {
+            strainTags = JSON.parse(strain.tags);
+          } catch {
+            strainTags = strain.tags.split(',').map(tag => tag.trim()).filter(tag => tag);
+          }
+          return (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {strainTags.map((tag, index) => (
+                <span key={index} className="px-3 py-1 bg-green-800/30 text-green-400 rounded-full text-sm">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          );
+        })()}
 
         {/* Strain Details Grid */}
         <div className="grid md:grid-cols-2 gap-6">

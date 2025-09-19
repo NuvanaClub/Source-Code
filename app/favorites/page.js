@@ -143,20 +143,28 @@ export default function FavoritesPage() {
                   )}
 
                   {/* Tags */}
-                  {strain.tags && (
-                    <div className="flex flex-wrap gap-1 mb-3">
-                      {JSON.parse(strain.tags).slice(0, 3).map((tag, index) => (
-                        <span key={index} className="text-xs px-2 py-1 bg-green-800/30 text-green-400 rounded-full">
-                          {tag}
-                        </span>
-                      ))}
-                      {JSON.parse(strain.tags).length > 3 && (
-                        <span className="text-xs px-2 py-1 bg-green-800/30 text-green-400 rounded-full">
-                          +{JSON.parse(strain.tags).length - 3}
-                        </span>
-                      )}
-                    </div>
-                  )}
+                  {strain.tags && (() => {
+                    let strainTags = [];
+                    try {
+                      strainTags = JSON.parse(strain.tags);
+                    } catch {
+                      strainTags = strain.tags.split(',').map(tag => tag.trim()).filter(tag => tag);
+                    }
+                    return (
+                      <div className="flex flex-wrap gap-1 mb-3">
+                        {strainTags.slice(0, 3).map((tag, index) => (
+                          <span key={index} className="text-xs px-2 py-1 bg-green-800/30 text-green-400 rounded-full">
+                            {tag}
+                          </span>
+                        ))}
+                        {strainTags.length > 3 && (
+                          <span className="text-xs px-2 py-1 bg-green-800/30 text-green-400 rounded-full">
+                            +{strainTags.length - 3}
+                          </span>
+                        )}
+                      </div>
+                    );
+                  })()}
                   
                   {/* THC/CBD Info */}
                   {(strain.thcMin || strain.thcMax || strain.cbdMin || strain.cbdMax) && (
