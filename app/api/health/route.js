@@ -1,40 +1,38 @@
-import prisma from "@/lib/prisma";
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
 
 export async function GET() {
   try {
-    console.log("Health check started");
-    
     // Test database connection
     await prisma.$connect();
-    console.log("Database connected successfully");
     
-    // Test a simple query
-    const userCount = await prisma.user.count();
-    console.log("User count:", userCount);
+    // Get basic stats
+    const [userCount, strainCount, growCount] = await Promise.all([
+      prisma.user.count(),
+      prisma.strain.count(),
+      prisma.grow.count()
+    ]);
     
-    // Test if tables exist by trying to find a user
-    const testUser = await prisma.user.findFirst();
-    console.log("Test user query successful");
-    
-    return new Response(JSON.stringify({ 
-      status: "healthy",
-      database: "connected",
-      userCount,
+    return Response.json({
+      status: 'healthy',
+      database: 'connected',
+      stats: {
+        users: userCount,
+        strains: strainCount,
+        grows: growCount
+      },
       timestamp: new Date().toISOString()
-    }), {
-      status: 200,
-      headers: { 'Content-Type': 'application/json' }
     });
   } catch (error) {
-    console.error("Health check failed:", error);
-    return new Response(JSON.stringify({ 
-      status: "unhealthy",
+    console.error('Health check failed:', error);
+    
+    return Response.json({
+      status: 'unhealthy',
+      database: 'disconnected',
       error: error.message,
       timestamp: new Date().toISOString()
-    }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    }, { status: 500 });
   } finally {
     await prisma.$disconnect();
   }
