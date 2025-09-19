@@ -6,10 +6,10 @@ async function main() {
   // Create admin user
   const adminHash = await bcrypt.hash("admin123", 10);
   const admin = await prisma.user.upsert({
-    where: { email: "admin@example.com" },
+    where: { email: "admin@weedwiki.com" },
     create: { 
-      email: "admin@example.com", 
-      name: "Admin", 
+      email: "admin@weedwiki.com", 
+      name: "Admin User", 
       password: adminHash, 
       role: "ADMIN",
       bio: "System administrator for Weed Wiki",
@@ -21,10 +21,10 @@ async function main() {
   // Create contributor user
   const contributorHash = await bcrypt.hash("contrib123", 10);
   const contributor = await prisma.user.upsert({
-    where: { email: "contributor@example.com" },
+    where: { email: "contributor@weedwiki.com" },
     create: { 
-      email: "contributor@example.com", 
-      name: "Contributor", 
+      email: "contributor@weedwiki.com", 
+      name: "Contributor User", 
       password: contributorHash, 
       role: "CONTRIBUTOR",
       bio: "Cannabis enthusiast and strain researcher",
@@ -36,9 +36,9 @@ async function main() {
   // Create regular user
   const userHash = await bcrypt.hash("user123", 10);
   const user = await prisma.user.upsert({
-    where: { email: "user@example.com" },
+    where: { email: "user@weedwiki.com" },
     create: { 
-      email: "user@example.com", 
+      email: "user@weedwiki.com", 
       name: "Regular User", 
       password: userHash, 
       role: "USER",
